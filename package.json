@@ -1,0 +1,30 @@
+{
+  "name": "algebra",
+  "version": "0.0.0",
+  "description": "Algebra is a library for interpreting mathematics. Currently, it transforms strings of mathematical significance with arbitrary domains into serializable syntax trees meant for consumption by computer algebra systems. In the future, it will also be able to target and interpret LaTeX.",
+  "main": "./dist/bundle.min.js",
+  "scripts": {
+    "grammar": "java org.antlr.v4.Tool .\\src\\grammar\\Algebra.g4 -o .\\src\\grammar\\bin -no-listener -visitor -Dlanguage=JavaScript",
+    "build": ".\\node_modules\\.bin\\webpack --config .\\scripts\\webpack.js",
+    "test": "node dist\\algebra.bundle.js",
+    "dev": "node scripts\\webpack.dev.js"
+  },
+  "author": "Duncan Walter",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.49.1",
+    "memfs": "0.0.15",
+    "memory-fs": "^0.4.1",
+    "unionfs": "0.0.9",
+    "webpack": "^3.1.0"
+  },
+  "dependencies": {
+    "antlr4": "^4.7.0",
+    "decimal.js": "^7.2.3",
+    "xregexp": "^3.2.0"
+  }
+}
